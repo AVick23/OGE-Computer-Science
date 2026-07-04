@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Задача №2 ОГЭ по информатике — шифры и коды. Полное пособие с нуля. Понятно даже 8-летнему ребёнку!">
+    <title>Задача №2 — Шифры и коды | ОГЭ Информатика</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <span class="logo-icon">💻</span>
+                        <h1 class="logo-text">ОГЭ Информатика</h1>
+                    </a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Breadcrumbs -->
+    <div class="container">
+        <nav class="breadcrumbs">
+            <a href="index.html">🏠 Главная</a>
+            <span class="separator">→</span>
+            <span>Задание №2</span>
+        </nav>
+    </div>
+    
+    <!-- Task Hero -->
+    <section class="task-hero">
+        <div class="container">
+            <div class="task-hero-content">
+                <div class="task-badge">🕵️ Задание №2 • Легко</div>
+                <h1 class="task-hero-title">Шифры и коды</h1>
+                <p class="task-hero-subtitle">Учимся читать секретные сообщения • Понятно даже 8-летнему ребёнку 🧒</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What is this task? -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🎯</div>
+                <h2 class="section-heading">Что это за задача?</h2>
+            </div>
+            
+            <div class="intro-card scroll-animate">
+                <p>Привет! Сегодня мы разберём <strong>задание №2</strong> из ОГЭ по информатике. Это самая интересная задача на всём экзамене — ты будешь чувствовать себя настоящим <strong>детективом</strong> или <strong>разведчиком</strong>, который расшифровывает секретные послания! 🕵️‍♂️</p>
+                
+                <p><strong>Задача №2 — это всегда про шифры.</strong> Тебе дадут зашифрованное сообщение и таблицу, где показано, как буквы кодируются. Твоя работа — <strong>расшифровать</strong> это сообщение.</p>
+                
+                <p>Но не пугайся! <strong>ВСЕ</strong> задачи этого типа решаются по одним и тем же принципам. Если ты поймёшь эти принципы, ты будешь щёлкать такие задачи как орешки. 🌰</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4 Types of Tasks -->
+    <section class="content-section" style="background: var(--surface-container-low);">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">📚</div>
+                <h2 class="section-heading">Что тебе встретится на экзамене?</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">4 типа задач — знакомимся с каждым</p>
+            </div>
+            
+            <div class="types-grid">
+                <!-- Type 1 -->
+                <div class="type-card scroll-animate">
+                    <div class="type-icon">🎭</div>
+                    <h3 class="type-title">Тип 1. Шифр из символов</h3>
+                    <p class="type-description">Тебе дают таблицу, где каждой букве соответствует набор символов: <code>+</code>, <code>~</code>, <code>@</code>, <code>#</code>, <code>*</code>, <code>_</code> и т.д.</p>
+                    <div class="code-example">
+                        <strong>Пример шифра:</strong><br>
+                        +~~+@@
+                    </div>
+                </div>
+                
+                <!-- Type 2 -->
+                <div class="type-card scroll-animate">
+                    <div class="type-icon">📡</div>
+                    <h3 class="type-title">Тип 2. Азбука Морзе</h3>
+                    <p class="type-description">Тебе дают радиограмму из точек (<code>•</code>) и тире (<code>—</code>), но потеряли разбиение на буквы. Зато говорят, какие буквы могли использоваться.</p>
+                    <div class="code-example">
+                        <strong>Пример:</strong><br>
+                        —•——•••———•–•–
+                    </div>
+                </div>
+                
+                <!-- Type 3 -->
+                <div class="type-card scroll-animate">
+                    <div class="type-icon">🔢</div>
+                    <h3 class="type-title">Тип 3. Шифр из цифр</h3>
+                    <p class="type-description">Буквы кодируются их номерами в алфавите: А=1, Б=2, В=3... Я=33. Твоя задача — разбить число на номера букв.</p>
+                    <div class="code-example">
+                        <strong>Пример шифра:</strong><br>
+                        31215
+                    </div>
+                </div>
+                
+                <!-- Type 4 -->
+                <div class="type-card scroll-animate">
+                    <div class="type-icon">💻</div>
+                    <h3 class="type-title">Тип 4. Двоичные коды</h3>
+                    <p class="type-description">Буквы кодируются последовательностями из 0 и 1. Твоя задача — понять, какие буквы скрываются за нулями и единицами.</p>
+                    <div class="code-example">
+                        <strong>Пример шифра:</strong><br>
+                        10001110
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4 Rules -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🧠</div>
+                <h2 class="section-heading">Что нужно знать обязательно</h2>
+            </div>
+            
+            <div class="rules-grid">
+                <!-- Rule 1 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">🔑</div>
+                    <h3 class="rule-title">Правило №1. Алфавит наизусть!</h3>
+                    <p class="rule-description">Для задач с номерами букв ты <strong>ОБЯЗАН</strong> знать русский алфавит наизусть.</p>
+                    
+                    <div class="alphabet-grid">
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">А</span>
+                            <span class="alphabet-number">1</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Б</span>
+                            <span class="alphabet-number">2</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">В</span>
+                            <span class="alphabet-number">3</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Г</span>
+                            <span class="alphabet-number">4</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Д</span>
+                            <span class="alphabet-number">5</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">Е</span>
+                            <span class="alphabet-number">6</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ё</span>
+                            <span class="alphabet-number">7</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ж</span>
+                            <span class="alphabet-number">8</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">З</span>
+                            <span class="alphabet-number">9</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">И</span>
+                            <span class="alphabet-number">10</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Й</span>
+                            <span class="alphabet-number">11</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">К</span>
+                            <span class="alphabet-number">12</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Л</span>
+                            <span class="alphabet-number">13</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">М</span>
+                            <span class="alphabet-number">14</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Н</span>
+                            <span class="alphabet-number">15</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">О</span>
+                            <span class="alphabet-number">16</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">П</span>
+                            <span class="alphabet-number">17</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">Р</span>
+                            <span class="alphabet-number">18</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">С</span>
+                            <span class="alphabet-number">19</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">Т</span>
+                            <span class="alphabet-number">20</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">У</span>
+                            <span class="alphabet-number">21</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ф</span>
+                            <span class="alphabet-number">22</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Х</span>
+                            <span class="alphabet-number">23</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ц</span>
+                            <span class="alphabet-number">24</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ч</span>
+                            <span class="alphabet-number">25</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ш</span>
+                            <span class="alphabet-number">26</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Щ</span>
+                            <span class="alphabet-number">27</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ъ</span>
+                            <span class="alphabet-number">28</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ы</span>
+                            <span class="alphabet-number">29</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ь</span>
+                            <span class="alphabet-number">30</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Э</span>
+                            <span class="alphabet-number">31</span>
+                        </div>
+                        <div class="alphabet-item">
+                            <span class="alphabet-letter">Ю</span>
+                            <span class="alphabet-number">32</span>
+                        </div>
+                        <div class="alphabet-item highlight">
+                            <span class="alphabet-letter">Я</span>
+                            <span class="alphabet-number">33</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        💡 <strong>Лайфхак:</strong> Выучи «опорные точки» — буквы, которые легко запомнить: А(1), Е(6), И(10), К(12), О(16), Р(18), С(19), Т(20), Я(33). Остальное считаешь от этих точек!
+                    </div>
+                </div>
+                
+                <!-- Rule 2 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">🔑</div>
+                    <h3 class="rule-title">Правило №2. «Буквы не повторяются»</h3>
+                    <p class="rule-description">В 90% задач тебе скажут: <strong>«буквы в нём не повторяются»</strong>. Это <strong>ЗОЛОТОЙ КЛЮЧ</strong> к решению!</p>
+                    <p class="rule-description">Что это значит? Если в таблице 6 букв (А, Б, В, Г, Д, Е), то и в ответе будет <strong>ровно 6 букв</strong>, и каждая встретится <strong>ровно 1 раз</strong>.</p>
+                    <p class="rule-description">Это сильно сужает варианты! Ты сразу знаешь, какие буквы должны быть в ответе.</p>
+                </div>
+                
+                <!-- Rule 3 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">🔑</div>
+                    <h3 class="rule-title">Правило №3. «Единственный вариант»</h3>
+                    <p class="rule-description">Во многих задачах тебе скажут: <strong>«только одна из шифровок расшифровывается единственным способом»</strong>.</p>
+                    <p class="rule-description">Это значит, что для трёх шифровок есть <strong>несколько</strong> вариантов расшифровки, а для одной — <strong>только один</strong>. Твоя задача — найти именно её.</p>
+                    <p class="rule-description">Как это проверить? Просто попробуй разбить шифр на буквы <strong>всеми возможными способами</strong>. Если получается только 1 вариант — это наш ответ!</p>
+                </div>
+                
+                <!-- Rule 4 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">🔑</div>
+                    <h3 class="rule-title">Правило №4. Метод «от обратного»</h3>
+                    <p class="rule-description">Самый мощный приём в твоей детективной копилке! 🔍</p>
+                    <p class="rule-description">Смотришь на зашифрованное сообщение и думаешь: <em>«А какие буквы ТОЧНО должны быть в этом слове?»</em></p>
+                    <p class="rule-description">Например, если в шифре есть символ <code>@@</code>, а в таблице только буква В кодируется как <code>@@</code>, значит В <strong>точно</strong> есть в слове!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Examples -->
+    <section class="content-section" style="background: var(--surface-container-low);">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🎬</div>
+                <h2 class="section-heading">Разбираем примеры</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">Нажми на карточку, чтобы увидеть решение</p>
+            </div>
+            
+            <div class="examples-container">
+                <!-- Example 1 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🟢 Легко</span>
+                            <span>Пример 1: Шифр из символов (Тип 1 № 147)</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> Вася и Петя играли в шпионов и кодировали сообщения собственным шифром. Фрагмент кодовой таблицы:
+                                                                <table class="encoding-table" style="margin-top: var(--spacing-md);">
+                                    <thead>
+                                        <tr>
+                                            <th>К</th>
+                                            <th>Л</th>
+                                            <th>М</th>
+                                            <th>П</th>
+                                            <th>О</th>
+                                            <th>И</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>@+</td>
+                                            <td>~+</td>
+                                            <td>+@</td>
+                                            <td>@~+</td>
+                                            <td>+</td>
+                                            <td>~</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                Расшифруйте сообщение, если известно, что буквы в нем не повторяются: <strong>+~+~+@@~+</strong>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> В таблице 6 букв: К, Л, М, П, О, И. Значит, в ответе будет 6 букв, и каждая встретится 1 раз.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Смотрим на таблицу внимательно:
+                                    <ul class="symbol-list">
+                                        <li><strong>О</strong> = <code>+</code> (самый короткий код!)</li>
+                                        <li><strong>И</strong> = <code>~</code> (тоже короткий)</li>
+                                        <li><strong>К</strong> = <code>@+</code></li>
+                                        <li><strong>Л</strong> = <code>~+</code></li>
+                                        <li><strong>М</strong> = <code>+@</code></li>
+                                        <li><strong>П</strong> = <code>@~+</code> (самый длинный)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3.</strong> Шифр: <code>+~+~+@@~+</code>. Начинаем расшифровку с самого «понятного» места — с конца!
+                                    <div class="code-block">+ ~ + ~ + @ @ ~ +</div>
+                                    Последние 3 символа <code>@~+</code> — это точно <strong>П</strong>! ✅
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 4.</strong> Отрезаем П. Остаётся: <code>+~+~+@</code>
+                                    <br>Перед П идёт <code>@</code>. Что может заканчиваться на <code>@</code>? Только <strong>М</strong> = <code>+@</code>! ✅
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 5.</strong> Отрезаем М. Остаётся: <code>+~+~</code>
+                                    <br>Разбираем: <code>+</code> = <strong>О</strong>, <code>~+</code> = <strong>Л</strong>, <code>~</code> = <strong>И</strong> ✅
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 6.</strong> Получилось: <strong>О Л И М П</strong> — 5 букв. Но в таблице 6 букв! Значит, буква К должна быть где-то ещё...
+                                    <br><br>
+                                    ⚠️ Стоп! Перечитаем условие: «буквы в нём <strong>не повторяются</strong>». Это значит, что буквы НЕ ПОВТОРЯЮТСЯ, но не обязательно, что ВСЕ буквы из таблицы использованы!
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">✅</div>
+                                <div class="solution-text">
+                                    <strong>Проверка:</strong> О, Л, И, М, П — все разные буквы. ✅
+                                    <br>Складываем коды: <code>+</code> + <code>~+</code> + <code>~</code> + <code>+@</code> + <code>@~+</code> = <code>+~+~+@@~+</code> ✅
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: ОЛИМП</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 2 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🟡 Средне</span>
+                            <span>Пример 2: Азбука Морзе (Тип 2 № 227)</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> От разведчика была получена шифрованная радиограмма:
+                                <div class="code-block">––•–––––•••–––•–•–</div>
+                                Известно, что в радиограмме использовались только следующие буквы:
+                                <table class="encoding-table" style="margin-top: var(--spacing-md);">
+                                    <thead>
+                                        <tr>
+                                            <th>А</th>
+                                            <th>Г</th>
+                                            <th>М</th>
+                                            <th>К</th>
+                                            <th>Ю</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>•–</td>
+                                            <td>––•</td>
+                                            <td>––</td>
+                                            <td>–•–</td>
+                                            <td>••––</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Выписываем коды букв:
+                                    <ul class="symbol-list">
+                                        <li><strong>А</strong> = <code>•–</code></li>
+                                        <li><strong>Г</strong> = <code>––•</code></li>
+                                        <li><strong>М</strong> = <code>––</code></li>
+                                        <li><strong>К</strong> = <code>–•–</code></li>
+                                        <li><strong>Ю</strong> = <code>••––</code></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Разбиваем радиограмму на символы:
+                                    <div class="code-block">– – • – – – – – • • • – – – • – • –</div>
+                                    Всего <strong>18 символов</strong>.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3.</strong> Начинаем с начала. Первые символы: <code>––•...</code>
+                                    <br>Это точно <strong>Г</strong> = <code>––•</code> ✅
+                                    <br>Отрезаем. Остаётся: <code>––––•••–––•–•–</code>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 4.</strong> Следующие символы: <code>–––...</code>
+                                    <br>Что может начинаться с <code>––</code>? Только <strong>М</strong> = <code>––</code> (Г = <code>––•</code> не подходит, т.к. 3-й символ это <code>–</code>, а не <code>•</code>) ✅
+                                    <br>Отрезаем. Остаётся: <code>––•••–––•–•–</code>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 5.</strong> Снова <code>––•...</code> — это <strong>М</strong> = <code>––</code> (Г не подходит по той же причине).
+                                    <br>Отрезаем. Остаётся: <code>–•••–––•–•–</code>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 6.</strong> Начинается с <code>–•...</code>
+                                    <br>Что может начинаться с <code>–</code>? 
+                                    <ul class="symbol-list">
+                                        <li><strong>К</strong> = <code>–•–</code> — но 2-й символ <code>•</code>, а 3-й <code>•</code>, не подходит</li>
+                                        <li><strong>М</strong> = <code>––</code> — 2-й символ <code>•</code>, не подходит</li>
+                                        <li><strong>Г</strong> = <code>––•</code> — 2-й символ <code>•</code>, не подходит</li>
+                                    </ul>
+                                    ⚠️ Тупик! Значит, первая буква — <strong>НЕ Г</strong>, а <strong>М</strong> = <code>––</code>!
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 7.</strong> Возвращаемся. Первая буква — <strong>М</strong> = <code>––</code>.
+                                    <br>Остаётся: <code>•–––––•••–––•–•–</code>
+                                    <br>Начинается с <code>•</code>. Это может быть:
+                                    <ul class="symbol-list">
+                                        <li><strong>А</strong> = <code>•–</code> ✅</li>
+                                        <li><strong>Ю</strong> = <code>••––</code> — но 2-й символ <code>–</code>, не подходит</li>
+                                    </ul>
+                                    Значит, <strong>А</strong> = <code>•–</code>. Отрезаем. Остаётся: <code>––––•••–––•–•–</code>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 8.</strong> Дальше по той же логике:
+                                    <br><code>––</code> = <strong>М</strong> → <code>––</code> = <strong>М</strong> → <code>••––</code> = <strong>Ю</strong> → <code>––•</code> = <strong>Г</strong> → <code>–•–</code> = <strong>К</strong> ✅
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">✅</div>
+                                <div class="solution-text">
+                                    <strong>Проверка:</strong> 
+                                    <br>М(2) + А(2) + М(2) + М(2) + Ю(4) + Г(3) + К(3) = 18 символов ✅
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: МАММЮГК</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 3 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🔴 Сложнее</span>
+                            <span>Пример 3: Шифр из цифр (Тип 2 № 7)</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> Валя шифрует русские слова, записывая вместо каждой буквы ее код:
+                                <table class="encoding-table" style="margin-top: var(--spacing-md);">
+                                    <thead>
+                                        <tr>
+                                            <th>А</th>
+                                            <th>Д</th>
+                                            <th>К</th>
+                                            <th>Н</th>
+                                            <th>О</th>
+                                            <th>С</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>100</td>
+                                            <td>101</td>
+                                            <td>10</td>
+                                            <td>111</td>
+                                            <td>000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                Даны три кодовые цепочки: <strong>10111101</strong>, <strong>1010110</strong>, <strong>10111000</strong>
+                                <br>Найдите среди них ту, которая имеет <strong>только одну</strong> расшифровку.
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Замечаем важную вещь: коды <strong>Н</strong> = 10 и <strong>К</strong> = 101 начинаются одинаково! Это создаёт неоднозначность.
+                                    <br>Также <strong>А</strong> = 01 и <strong>С</strong> = 000 начинаются с 0.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2. Проверяем первую цепочку: 10111101</strong>
+                                    <br>Вариант 1: <code>101</code> = К, <code>111</code> = О, <code>01</code> = А → <strong>КОА</strong> ✅
+                                    <br>Вариант 2: <code>10</code> = Н, <code>111</code> = О, <code>101</code> = К → <strong>НОК</strong> ✅
+                                    <br><br>
+                                    ⚠️ <strong>ДВА варианта!</strong> Не подходит.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3. Проверяем вторую цепочку: 1010110</strong>
+                                    <br>Вариант 1: <code>101</code> = К, <code>01</code> = А, <code>10</code> = Н → <strong>КАН</strong> ✅
+                                    <br>Вариант 2: <code>10</code> = Н, <code>101</code> = К, <code>10</code> = Н → <strong>НКН</strong> ✅
+                                    <br><br>
+                                    ⚠️ <strong>ДВА варианта!</strong> Не подходит.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 4. Проверяем третью цепочку: 10111000</strong>
+                                    <br>Пробуем начать с К = <code>101</code>: остаётся <code>11000</code>. 
+                                    <br><code>110</code> — нет такой буквы! <code>111</code> — нет, у нас <code>110</code>. ⚠️ Тупик.
+                                    <br><br>
+                                    Пробуем начать с Н = <code>10</code>: остаётся <code>111000</code>.
+                                    <br><code>111</code> = О, остаётся <code>000</code> = С ✅
+                                    <br>Получилось: <strong>НОС</strong> ✅
+                                    <br><br>
+                                    Других вариантов нет! <strong>ТОЛЬКО ОДИН вариант!</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: НОС</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 4 - Бонус -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🟣 Бонус</span>
+                            <span>Пример 4: Шифр из символов (Тип 2 № 187)</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> Фрагмент кодовой таблицы:
+                                <table class="encoding-table" style="margin-top: var(--spacing-md);">
+                                    <thead>
+                                        <tr>
+                                            <th>Ж</th>
+                                            <th>Е</th>
+                                            <th>С</th>
+                                            <th>А</th>
+                                            <th>К</th>
+                                            <th>Л</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>+#</td>
+                                            <td>+^#</td>
+                                            <td>#</td>
+                                            <td>^</td>
+                                            <td>^#</td>
+                                            <td>#+</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                Расшифруйте сообщение (буквы не повторяются): <strong>#++^##^#^</strong>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Смотрим на таблицу. Самые короткие коды:
+                                    <ul class="symbol-list">
+                                        <li><strong>С</strong> = <code>#</code> (1 символ)</li>
+                                        <li><strong>А</strong> = <code>^</code> (1 символ)</li>
+                                    </ul>
+                                    Это наши «опорные точки»!
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Шифр: <code>#++^##^#^</code>
+                                    <br>Начинаем с конца: <code>^</code> = <strong>А</strong> ✅
+                                    <br>Перед ним: <code>#</code> = <strong>С</strong> ✅
+                                    <br>Перед ним: <code>^</code> = <strong>А</strong>... но А уже была!
+                                    <br><br>
+                                    Значит, перед <code>#</code> не <code>^</code>, а что-то другое. Смотрим: <code>##^</code>
+                                    <br><code>#+</code> = <strong>Л</strong>? Но перед <code>+</code> идёт <code>#</code>, а у нас <code>##</code>. Не подходит.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3.</strong> Попробуем с начала:
+                                    <br><code>#</code> = <strong>С</strong> ✅
+                                    <br>Дальше <code>++^##^#^</code>
+                                    <br><code>+#</code> = <strong>Ж</strong>? Но у нас <code>++</code>, не подходит.
+                                    <br>Значит, после С идёт что-то, начинающееся с <code>+</code>. Но нет буквы, начинающейся с <code>+</code>, кроме Ж = <code>+#</code>.
+                                    <br><br>
+                                    Стоп! А что если <code>#</code> — это не С, а часть другого кода?
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 4.</strong> Попробуем: <code>#+</code> = <strong>Л</strong> (первые 2 символа).
+                                    <br>Остаётся: <code>+^##^#^</code>
+                                    <br><code>+#</code> = <strong>Ж</strong>? Нет, у нас <code>+^</code>.
+                                    <br><code>+^#</code> = <strong>Е</strong> ✅
+                                    <br>Остаётся: <code>#^#^</code>
+                                    <br><code>#</code> = <strong>С</strong>, <code>^</code> = <strong>А</strong>, <code>#</code> = С — но С уже была!
+                                    <br><br>
+                                    ⚠️ Не подходит.
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 5.</strong> Попробуем с начала: <code>#</code> = <strong>С</strong>.
+                                    <br>Дальше: <code>++^##^#^</code>
+                                    <br>Пробуем: <code>+</code> — нет буквы с кодом <code>+</code>.
+                                    <br><code>++</code> — нет такой буквы.
+                                    <br><code>++^</code> — нет.
+                                    <br>Значит, <code>#</code> в начале — это точно <strong>С</strong>, но после него идёт <code>++^</code>, что не соответствует ни одной букве!
+                                    <br><br>
+                                    ⚠️ Значит, первая буква — <strong>НЕ С</strong>!
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 6.</strong> А что если первая буква — <strong>Л</strong> = <code>#+</code>?
+                                    <br>Остаётся: <code>+^##^#^</code>
+                                    <br><code>+^#</code> = <strong>Е</strong> ✅
+                                    <br>Остаётся: <code>#^#^</code>
+                                    <br><code>#</code> = <strong>С</strong>, <code>^#</code> = <strong>К</strong>, <code>^</code> = <strong>А</strong> ✅
+                                    <br><br>
+                                    Получилось: <strong>Л Е С К А</strong> ✅
+                                    <br>Все буквы разные! ✅
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">✅</div>
+                                <div class="solution-text">
+                                    <strong>Проверка:</strong> 
+                                    <br><code>#+</code> + <code>+^#</code> + <code>#</code> + <code>^#</code> + <code>^</code> = <code>#++^##^#^</code> ✅
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: ЛЕСКА</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Traps -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🚨</div>
+                <h2 class="section-heading">Главные ловушки</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">Как не потерять балл</p>
+            </div>
+            
+            <div class="traps-grid">
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 1: «Забыл про "буквы не повторяются"»</h3>
+                    <p class="trap-description">Самая частая ошибка — не обратить внимание на эту фразу в условии. Она сильно сужает варианты!</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Всегда проверяй условие. Если сказано «буквы не повторяются» — в ответе каждая буква должна быть ровно 1 раз.
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 2: «Перепутал точки и тире»</h3>
+                    <p class="trap-description">В азбуке Морзе точка (<code>•</code>) и тире (<code>—</code>) — это разные символы. Одна ошибка — и всё решение неверно.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Пиши радиограмму крупно на черновике, разделяя символы. Проверяй каждую букву дважды.
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 3: «Не проверил все варианты»</h3>
+                    <p class="trap-description">В задачах с цифрами или двоичными кодами одну шифровку можно разбить по-разному. Нужно найти ту, где вариант <strong>единственный</strong>.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Перебирай ВСЕ возможные разбиения. Только так найдёшь «единственный вариант».
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 4: «Не знал алфавит»</h3>
+                    <p class="trap-description">В задачах с номерами букв нужно быстро определять, какая буква соответствует числу. Без знания алфавита — никак.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Выучи алфавит наизусть! Это займёт 15 минут, но сэкономит кучу времени на экзамене.
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 5: «Начал не с того конца»</h3>
+                    <p class="trap-description">Иногда расшифровку легче начать с конца, а не с начала. Особенно если в конце есть «уникальный» символ.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Если с начала не получается — попробуй с конца! Это нормальная стратегия.
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 6: «Забыл проверить ответ»</h3>
+                    <p class="trap-description">Даже если ты уверен в ответе, всегда проверяй: складываются ли коды букв в исходную шифровку?</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> После получения ответа сложи коды всех букв и сравни с исходной строкой. Должно совпасть!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Checklist -->
+    <section class="content-section" style="background: var(--surface-container-low);">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">✅</div>
+                <h2 class="section-heading">Итоговый чек-лист</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">Нажимай на пункты, чтобы отмечать выполненное</p>
+            </div>
+            
+            <div class="checklist scroll-animate">
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">📖 Прочитал условие внимательно</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🔍 Определил тип задачи (символы, Морзе, цифры, двоичные)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">📝 Выписал коды всех букв</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🧠 Проверил: есть ли фраза «буквы не повторяются»?</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🔢 Начал расшифровку с начала или конца</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🔄 Перебрал все варианты, если есть неоднозначность</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">✅ Проверил, что вся строка использована без остатка</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🎯 Записал ответ и проверил его ещё раз</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Reference -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🎯</div>
+                <h2 class="section-heading">Шпаргалка на экзамен</h2>
+            </div>
+            
+            <div class="memory-section">
+                <div class="memory-card scroll-animate">
+                    <h3 class="memory-title">🔑 Ключевые фразы</h3>
+                    <ul class="symbol-list">
+                        <li>«буквы не повторяются» → каждая буква 1 раз</li>
+                        <li>«только одна расшифровка» → ищем однозначную</li>
+                        <li>«потеряно разбиение» → нужно восстановить</li>
+                        <li>«без пробелов» → всё слитно</li>
+                    </ul>
+                </div>
+                
+                <div class="memory-card scroll-animate">
+                    <h3 class="memory-title">💡 Стратегии решения</h3>
+                    <ul class="symbol-list">
+                        <li>Начинай с коротких кодов</li>
+                        <li>Ищи уникальные символы</li>
+                        <li>Пробуй с конца, если с начала тупик</li>
+                        <li>Всегда проверяй ответ сложением</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Success Section -->
+    <section class="success-section">
+        <div class="container">
+            <div class="success-content scroll-animate">
+                <div class="success-emoji">🏆</div>
+                <h2 class="success-title">Ты готов!</h2>
+                <p class="success-text">Если ты понял это пособие, ты сможешь решить <strong>ЛЮБУЮ</strong> задачу №2 на ОГЭ. Главное — не торопись, перебирай варианты и проверяй себя.</p>
+                <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">Удачи на экзамене! У тебя всё получится! 🚀⭐</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Navigation Buttons -->
+    <div class="container">
+        <div class="nav-buttons">
+            <a href="task1.html" class="nav-button">
+                <div class="nav-button-icon">⬅️</div>
+                <div class="nav-button-text">
+                    <span class="nav-button-label">Назад</span>
+                    <span class="nav-button-title">Задание №1</span>
+                </div>
+            </a>
+            <a href="task3.html" class="nav-button" style="flex-direction: row-reverse; text-align: right;">
+                <div class="nav-button-icon">➡️</div>
+                <div class="nav-button-text">
+                    <span class="nav-button-label">Далее</span>
+                    <span class="nav-button-title">Задание №3</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2026 ОГЭ Информатика. Все материалы для подготовки к экзамену.</p>
+                <div class="footer-links">
+                    <a href="index.html">Главная</a>
+                    <a href="task1.html">Задание №1</a>
+                    <a href="task2.html">Задание №2</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+    
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (prefersDark) {
+            html.setAttribute('data-theme', 'dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Reading Progress Bar
+        const progressBar = document.getElementById('progressBar');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            progressBar.style.width = progress + '%';
+        });
+        
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Toggle Example Cards
+        function toggleExample(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+        
+        // Toggle Checklist Items
+        function toggleCheck(item) {
+            item.classList.toggle('checked');
+            
+            // Save state to localStorage
+            const checklistItems = document.querySelectorAll('.checklist-item');
+            const states = Array.from(checklistItems).map(item => item.classList.contains('checked'));
+            localStorage.setItem('checklist-task2', JSON.stringify(states));
+        }
+        
+        // Load checklist state
+        const savedChecklist = localStorage.getItem('checklist-task2');
+        if (savedChecklist) {
+            const states = JSON.parse(savedChecklist);
+            const checklistItems = document.querySelectorAll('.checklist-item');
+            checklistItems.forEach((item, index) => {
+                if (states[index]) {
+                    item.classList.add('checked');
+                }
+            });
+        }
+        
+        // Scroll Animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Mouse tracking for cards (spotlight effect)
+        document.querySelectorAll('.type-card, .rule-card, .trap-card, .memory-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+        
+        // Alphabet item click animation
+        document.querySelectorAll('.alphabet-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.transform = 'scale(1.2) rotate(5deg)';
+                setTimeout(() => {
+                    item.style.transform = '';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

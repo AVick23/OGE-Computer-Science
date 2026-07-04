@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Задача №1 ОГЭ по информатике — полное пособие с нуля. Понятно даже 8-летнему ребёнку!">
+    <title>Задача №1 — Информация и кодирование | ОГЭ Информатика</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <span class="logo-icon">💻</span>
+                        <h1 class="logo-text">ОГЭ Информатика</h1>
+                    </a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Breadcrumbs -->
+    <div class="container">
+        <nav class="breadcrumbs">
+            <a href="index.html">🏠 Главная</a>
+            <span class="separator">→</span>
+            <span>Задание №1</span>
+        </nav>
+    </div>
+    
+    <!-- Task Hero -->
+    <section class="task-hero">
+        <div class="container">
+            <div class="task-hero-content">
+                <div class="task-badge">📘 Задание №1 • Легко</div>
+                <h1 class="task-hero-title">Информация и кодирование</h1>
+                <p class="task-hero-subtitle">Полное пособие • Понятно даже 8-летнему ребёнку 🧒</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What is this task? -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🎯</div>
+                <h2 class="section-heading">Что это за задача?</h2>
+            </div>
+            
+            <div class="intro-card scroll-animate">
+                <p>Представь, что ты играешь в <strong>Лего</strong>. У тебя есть детали разных цветов и размеров. Компьютер тоже «играет в Лего», только его детали — это <strong>буквы, цифры, запятые и даже пробелы</strong>.</p>
+                
+                <p><strong>Задача №1 — это про то, сколько «весят» буквы и слова в компьютере.</strong></p>
+                
+                <div class="quote">
+                    Тебе дадут текст и скажут:<br>
+                    <em>«Ученик вычеркнул одно слово, и текст стал легче на N байт. Угадай, какое слово вычеркнули!»</em>
+                </div>
+                
+                <p>Твоя работа — <strong>детектив</strong>. Нужно по «весу» угадать слово. 🕵️</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 3 Rules -->
+    <section class="content-section" style="background: var(--surface-container-low);">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">📚</div>
+                <h2 class="section-heading">Что нужно знать (всего 3 правила!)</h2>
+            </div>
+            
+            <div class="rules-grid">
+                <!-- Rule 1 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">🧱</div>
+                    <h3 class="rule-title">Правило 1. В компьютере всё — это символы</h3>
+                    <p class="rule-description">Компьютер не понимает слов «яблоко» или «собака». Для него всё — это просто <strong>набор символов</strong>.</p>
+                    <p class="rule-description"><strong>Символ — это ЛЮБАЯ штучка в тексте:</strong></p>
+                    <ul class="symbol-list">
+                        <li>🔤 Буквы: А, Б, В, a, b, c</li>
+                        <li>🔢 Цифры: 1, 2, 3</li>
+                        <li>📍 Знаки: запятая, точка, тире</li>
+                        <li>⬜ <strong>ПРОБЕЛ</strong> (самое важное!)</li>
+                    </ul>
+                    <div class="info-box">
+                        💡 <strong>Запомни:</strong> Пробел — это такой же символ, как и буква. Компьютер его «видит» и считает!
+                    </div>
+                </div>
+                
+                <!-- Rule 2 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">⚖️</div>
+                    <h3 class="rule-title">Правило 2. У каждого символа есть «вес»</h3>
+                    <p class="rule-description">Как у конфет есть вес в граммах, так и у символов есть вес в <strong>байтах</strong>.</p>
+                    <p class="rule-description">В задаче всегда написано, в какой «кодировке» написан текст:</p>
+                    
+                    <table class="encoding-table">
+                        <thead>
+                            <tr>
+                                <th>Кодировка</th>
+                                <th>Вес 1 символа</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>КОИ-8</strong> или <strong>Windows-1251</strong></td>
+                                <td>🟢 <strong>1 байт</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Unicode</strong> или <strong>UTF-16</strong></td>
+                                <td>🔵 <strong>2 байта</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="info-box">
+                        🎯 <strong>Запомни навсегда:</strong><br>
+                        • 1 байт = 8 бит<br>
+                        • КОИ-8, Windows = <strong>1 байт</strong><br>
+                        • Unicode, UTF-16 = <strong>2 байта</strong>
+                    </div>
+                </div>
+                
+                <!-- Rule 3 -->
+                <div class="rule-card scroll-animate">
+                    <div class="rule-icon">🧮</div>
+                    <h3 class="rule-title">Правило 3. Математика простая</h3>
+                    <p class="rule-description">• Если слово <strong>удалили</strong> — текст стал <strong>меньше</strong><br>
+                    • Если слово <strong>добавили</strong> — текст стал <strong>больше</strong><br>
+                    • Если слово <strong>написали 2 раза</strong> — текст стал <strong>больше</strong></p>
+                    
+                    <div class="info-box">
+                        ⚠️ <strong>Главная хитрость:</strong><br>
+                        Когда удаляют слово из списка (<em>яблоко, груша, слива</em>), удаляют не только слово, но и <strong>запятую с пробелом</strong> (<code>, </code>). Это <strong>2 лишних символа</strong>!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Algorithm -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🚀</div>
+                <h2 class="section-heading">Как решать (пошаговый алгоритм)</h2>
+            </div>
+            
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-card scroll-animate">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">🪜 Определи «вес» одного символа</h3>
+                    <p class="step-description">Посмотри в первую строчку задачи:</p>
+                    <ul class="symbol-list">
+                        <li>Видишь <strong>КОИ-8</strong> или <strong>Windows</strong> → 1 символ = <strong>1 байт</strong></li>
+                        <li>Видишь <strong>Unicode</strong> или <strong>UTF-16</strong> → 1 символ = <strong>2 байта</strong></li>
+                    </ul>
+                    <div class="info-box">✍️ Запиши это на черновике!</div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card scroll-animate">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">🪜 Посчитай, сколько ВСЕГО символов удалили/добавили</h3>
+                    <p class="step-description">В задаче сказано, на сколько байт изменился текст. Раздели это число на «вес» одного символа.</p>
+                    <div class="formula-box">
+                        Всего символов = Разница в байтах ÷ Вес 1 символа
+                    </div>
+                    <p class="step-description"><strong>Пример:</strong><br>
+                    Текст стал меньше на <strong>8 байт</strong>, кодировка КОИ-8 (1 байт)<br>
+                    8 ÷ 1 = <strong>8 символов</strong> удалили</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card scroll-animate">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">🪜 Убери «мусор» (запятые и пробелы)</h3>
+                    <p class="step-description">Посмотри, что именно сделали с текстом:</p>
+                    
+                    <table class="encoding-table">
+                        <thead>
+                            <tr>
+                                <th>Что сделали</th>
+                                <th>Сколько «мусора» убрать</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Удалили из списка (<em>А, Б, В</em>)</td>
+                                <td>Вычти <strong>2</strong> (запятая + пробел)</td>
+                            </tr>
+                            <tr>
+                                <td>Удалили из предложения</td>
+                                <td>Вычти <strong>1</strong> (пробел)</td>
+                            </tr>
+                            <tr>
+                                <td>Добавили слово</td>
+                                <td>Вычти <strong>1</strong> (пробел)</td>
+                            </tr>
+                            <tr>
+                                <td>Написали 2 раза</td>
+                                <td>Вычти <strong>1</strong> (пробел)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="formula-box">
+                        Длина слова = Всего символов − Мусор
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step-card scroll-animate">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">🪜 Найди слово нужной длины</h3>
+                    <p class="step-description">Посмотри на список слов в задаче. Посчитай буквы в каждом слове. Найди то, у которого <strong>столько же букв</strong>, сколько ты получил на Ступеньке 3.</p>
+                    <div class="info-box">
+                        💡 <strong>Лайфхак:</strong> Выпиши все слова в столбик и рядом в скобках пиши количество букв. Так не запутаешься!
+                    </div>
+                    <div class="word-list">
+                        <div class="word-item">Обь (3)</div>
+                        <div class="word-item">Лена (4)</div>
+                        <div class="word-item">Волга (5)</div>
+                        <div class="word-item answer">Москва (6) ← НАШЕ СЛОВО!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Examples -->
+    <section class="content-section" style="background: var(--surface-container-low);">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🎬</div>
+                <h2 class="section-heading">Разбираем примеры</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">Нажми на карточку, чтобы увидеть решение</p>
+            </div>
+            
+            <div class="examples-container">
+                <!-- Example 1 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🟢 Легко</span>
+                            <span>Пример 1: КОИ-8, удаление из списка</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> В кодировке КОИ-8 каждый символ = 8 бит. Текст: <em>«Обь, Лена, Волга, Москва, Макензи, Амазонка — реки»</em>. Ученик вычеркнул одну реку. Заодно вычеркнул запятые и пробелы. Текст стал на <strong>8 байт</strong> меньше. Какую реку вычеркнули?
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 1:</strong> КОИ-8 → 1 символ = <strong>1 байт</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 2:</strong> 8 байт ÷ 1 = <strong>8 символов</strong> удалили
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 3:</strong> Удаляли из списка → вычитаем 2 (запятая + пробел)<br>
+                                    8 − 2 = <strong>6 букв</strong> в слове
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 4:</strong> Считаем буквы в реках:
+                                    <div class="word-list">
+                                        <div class="word-item">Обь (3)</div>
+                                        <div class="word-item">Лена (4)</div>
+                                        <div class="word-item">Волга (5)</div>
+                                        <div class="word-item answer">Москва (6) ✅</div>
+                                        <div class="word-item">Макензи (7)</div>
+                                        <div class="word-item">Амазонка (8)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: Москва</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 2 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🟡 Средне</span>
+                            <span>Пример 2: Unicode (в 2 раза тяжелее)</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> В Unicode каждый символ = 16 бит. Текст: <em>«еж, лев, слон, олень, тюлень, носорог, крокодил, аллигатор — дикие животные»</em>. Ученик вычеркнул одно животное. Текст стал на <strong>16 байт</strong> меньше. Какое животное вычеркнули?
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 1:</strong> Unicode → 1 символ = <strong>2 байта</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 2:</strong> 16 байт ÷ 2 = <strong>8 символов</strong> удалили
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 3:</strong> Удаляли из списка → 8 − 2 = <strong>6 букв</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 4:</strong> Считаем:
+                                    <div class="word-list">
+                                        <div class="word-item">еж (2)</div>
+                                        <div class="word-item">лев (3)</div>
+                                        <div class="word-item">слон (4)</div>
+                                        <div class="word-item">олень (5)</div>
+                                        <div class="word-item answer">тюлень (6) ✅</div>
+                                        <div class="word-item">носорог (7)</div>
+                                        <div class="word-item">крокодил (8)</div>
+                                        <div class="word-item">аллигатор (9)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: тюлень</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 3 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🔴 Сложнее</span>
+                            <span>Пример 3: Слово написали 2 раза</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> В Windows-1251 (1 символ = 1 байт). Текст: <em>«Скользя по утреннему снегу, Друг милый, предадимся бегу Нетерпеливого коня И навестим поля пустые...»</em>. Одно из слов ученик написал <strong>два раза подряд</strong>, поставив между ними пробел. Текст стал на <strong>8 байт</strong> больше. Какое слово лишнее?
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 1:</strong> Windows-1251 → 1 символ = <strong>1 байт</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 2:</strong> 8 байт ÷ 1 = <strong>8 символов</strong> добавили
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 3:</strong> Добавили слово + 1 пробел между ними → 8 − 1 = <strong>7 букв</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Ступенька 4:</strong> Ищем слово из 7 букв:
+                                    <div class="word-list">
+                                        <div class="word-item answer">Скользя (7) ✅</div>
+                                        <div class="word-item">по (2)</div>
+                                        <div class="word-item">утреннему (9)</div>
+                                        <div class="word-item">снегу (5)</div>
+                                        <div class="word-item">Друг (4)</div>
+                                        <div class="word-item">милый (5)</div>
+                                        <div class="word-item">предадимся (10)</div>
+                                        <div class="word-item">бегу (4)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: Скользя</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 4 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🟣 Другой тип</span>
+                            <span>Пример 4: Объём целого текста</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> Статья содержит 10 страниц, на каждой 32 строки, в каждой строке 48 символов. В Unicode (16 бит) определи объём статьи в <strong>Кбайтах</strong>.
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1:</strong> Считаем всего символов:<br>
+                                    10 × 32 × 48 = <strong>15 360 символов</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2:</strong> Unicode → 1 символ = <strong>2 байта</strong><br>
+                                    15 360 × 2 = <strong>30 720 байт</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3:</strong> Переводим в Кбайты (в 1 Кбайте 1024 байта):<br>
+                                    30 720 ÷ 1024 = <strong>30 Кбайт</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: 30</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 5 -->
+                <div class="example-card scroll-animate">
+                    <div class="example-header" onclick="toggleExample(this)">
+                        <div class="example-title">
+                            <span class="example-difficulty">🔵 Подсчёт</span>
+                            <span>Пример 5: Размер предложения</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> В Unicode (16 бит) определи размер предложения в байтах: <em>«Слух обо мне пройдёт по всей Руси великой.»</em>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1:</strong> Считаем <strong>ВСЕ</strong> символы (буквы + пробелы + точку):<br>
+                                    <code style="background: var(--surface-container); padding: 4px 8px; border-radius: 4px;">С-л-у-х-␣-о-б-о-␣-м-н-е-␣-п-р-о-й-д-ё-т-␣-п-о-␣-в-с-е-й-␣-Р-у-с-и-␣-в-е-л-и-к-о-й-.</code><br><br>
+                                    Получилось <strong>41 символ</strong> (включая 6 пробелов и точку!)
+                                </div>
+                            </div>
+                            
+                            <div class="solution-step">
+                                <div class="step-emoji">🪜</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2:</strong> Unicode → 1 символ = <strong>2 байта</strong><br>
+                                    41 × 2 = <strong>82 байта</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-box">🎉 Ответ: 82</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Traps -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🚨</div>
+                <h2 class="section-heading">Главные ловушки</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">Как не потерять балл</p>
+            </div>
+            
+            <div class="traps-grid">
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 1: «Пробел — это не символ»</h3>
+                    <p class="trap-description">Самая частая ошибка — забывать, что пробел тоже занимает место в памяти компьютера.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Запомни мантру: <em>«Пробел — это символ!»</em> Всегда считай пробелы!
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 2: «Забыл вычесть запятую»</h3>
+                    <p class="trap-description">При удалении слова из списка удаляется не только слово, но и запятая с пробелом.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Если удаляют из списка (<em>А, Б, В</em>), всегда вычитай <strong>2</strong> (запятая + пробел).
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 3: «Перепутал байты и биты»</h3>
+                    <p class="trap-description">Внимательно читай условие — разница может быть дана в битах, а не в байтах.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong><br>
+                        • «на 16 <strong>байт</strong>» — дели на вес символа<br>
+                        • «на 16 <strong>бит</strong>» — сначала переведи в байты (16 ÷ 8 = 2 байта)
+                    </div>
+                </div>
+                
+                <div class="trap-card scroll-animate">
+                    <h3 class="trap-title">❌ Ловушка 4: «Не посчитал точку»</h3>
+                    <p class="trap-description">В задачах на размер предложения часто забывают посчитать знаки препинания в конце.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Считай <strong>ВСЁ</strong>: буквы, пробелы, точки, запятые, тире.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Checklist -->
+    <section class="content-section" style="background: var(--surface-container-low);">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">✅</div>
+                <h2 class="section-heading">Итоговый чек-лист</h2>
+                <p style="color: var(--on-surface-variant); margin-top: var(--spacing-sm);">Нажимай на пункты, чтобы отмечать выполненное</p>
+            </div>
+            
+            <div class="checklist scroll-animate">
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">📖 Посмотрел кодировку (КОИ-8/Windows = 1 байт, Unicode/UTF-16 = 2 байта)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">⚠️ Проверил единицы (байты или биты?)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🔢 Разделил разницу в байтах на вес символа</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🧹 Вычел «мусор» (2 для списка, 1 для предложения)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">🔍 Нашёл слово нужной длины</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-text">✅ Проверил ответ ещё раз</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Memory Tables -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-emoji">🎯</div>
+                <h2 class="section-heading">Запомни навсегда</h2>
+            </div>
+            
+            <div class="memory-section">
+                <div class="memory-card scroll-animate">
+                    <h3 class="memory-title">⚖️ Кодировки</h3>
+                    <table class="encoding-table">
+                        <thead>
+                            <tr>
+                                <th>Кодировка</th>
+                                <th>1 символ = ?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>КОИ-8, Windows-1251</td>
+                                <td><strong>1 байт</strong> (8 бит)</td>
+                            </tr>
+                            <tr>
+                                <td>Unicode, UTF-16</td>
+                                <td><strong>2 байта</strong> (16 бит)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="memory-card scroll-animate">
+                    <h3 class="memory-title">🧹 Что вычитать</h3>
+                    <table class="encoding-table">
+                        <thead>
+                            <tr>
+                                <th>Действие</th>
+                                <th>Что вычесть</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Удалили из списка</td>
+                                <td><strong>−2</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Удалили из предложения</td>
+                                <td><strong>−1</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Добавили слово</td>
+                                <td><strong>−1</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Написали 2 раза</td>
+                                <td><strong>−1</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Success Section -->
+    <section class="success-section">
+        <div class="container">
+            <div class="success-content scroll-animate">
+                <div class="success-emoji">🏆</div>
+                <h2 class="success-title">Ты готов!</h2>
+                <p class="success-text">Если ты понял это пособие, ты сможешь решить <strong>ЛЮБУЮ</strong> задачу №1 на ОГЭ. Просто следуй ступенькам, не торопись и проверяй себя по чек-листу.</p>
+                <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">Удачи на экзамене! У тебя всё получится! 🚀⭐</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Navigation Buttons -->
+    <div class="container">
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-button">
+                <div class="nav-button-icon">🏠</div>
+                <div class="nav-button-text">
+                    <span class="nav-button-label">Назад</span>
+                    <span class="nav-button-title">На главную</span>
+                </div>
+            </a>
+            <a href="task2.html" class="nav-button" style="flex-direction: row-reverse; text-align: right;">
+                <div class="nav-button-icon">➡️</div>
+                <div class="nav-button-text">
+                    <span class="nav-button-label">Далее</span>
+                    <span class="nav-button-title">Задание №2</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2026 ОГЭ Информатика. Все материалы для подготовки к экзамену.</p>
+                <div class="footer-links">
+                    <a href="index.html">Главная</a>
+                    <a href="#about">О проекте</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+    
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (prefersDark) {
+            html.setAttribute('data-theme', 'dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Reading Progress Bar
+        const progressBar = document.getElementById('progressBar');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            progressBar.style.width = progress + '%';
+        });
+        
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Toggle Example Cards
+        function toggleExample(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+        
+        // Toggle Checklist Items
+        function toggleCheck(item) {
+            item.classList.toggle('checked');
+            
+            // Save state to localStorage
+            const checklistItems = document.querySelectorAll('.checklist-item');
+            const states = Array.from(checklistItems).map(item => item.classList.contains('checked'));
+            localStorage.setItem('checklist-task1', JSON.stringify(states));
+        }
+        
+        // Load checklist state
+        const savedChecklist = localStorage.getItem('checklist-task1');
+        if (savedChecklist) {
+            const states = JSON.parse(savedChecklist);
+            const checklistItems = document.querySelectorAll('.checklist-item');
+            checklistItems.forEach((item, index) => {
+                if (states[index]) {
+                    item.classList.add('checked');
+                }
+            });
+        }
+        
+        // Scroll Animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Mouse tracking for task cards (spotlight effect)
+        document.querySelectorAll('.rule-card, .trap-card, .memory-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+    </script>
+</body>
+</html>
