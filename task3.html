@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Задание №3 ОГЭ по информатике — файловая система, пути к файлам, маски, размер файлов">
+    <meta name="keywords" content="ОГЭ, информатика, файловая система, пути к файлам, маски">
+    <title>Задача №3 — Файловая система | ОГЭ Информатика</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">💻</span>
+                    <h1 class="logo-text">ОГЭ Информатика</h1>
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+        <nav class="breadcrumbs">
+            <a href="index.html">🏠 Главная</a>
+            <span class="separator">→</span>
+            <span>Задание №3</span>
+        </nav>
+    </div>
+
+    <!-- Task Hero -->
+    <section class="task-hero">
+        <div class="task-hero-content">
+            <div class="task-badge">📁 Задание №3 • Легко</div>
+            <h1 class="task-hero-title">Файловая система</h1>
+            <p class="task-hero-subtitle">Учимся находить файлы, работать с путями и масками • Понятно даже 8-летнему ребёнку 🧒</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="content-section">
+        <div class="task-content">
+            <!-- Intro Card -->
+            <div class="intro-card">
+                <h3>🎯 Что это за задача?</h3>
+                <p>Привет! Сегодня мы разберём задание №3 из ОГЭ по информатике. Это задача про файловую систему — то, как компьютер хранит и организует файлы.</p>
+                <p>Представь, что файловая система — это огромный шкаф с папками и документами. Тебе нужно научиться находить нужные файлы, понимать пути к ним и работать с масками.</p>
+                <div class="quote">
+                    Задача №3 — это про навигацию в файловой системе. Тебе дадут дерево каталогов и попросят найти файл, определить путь или выбрать файлы по маске.
+                </div>
+                <p>Не пугайся! Все задачи этого типа решаются по одним и тем же принципам. Если ты поймёшь эти принципы, ты будешь щёлкать такие задачи как орешки. 🌰</p>
+            </div>
+
+            <!-- Rules Section -->
+            <div class="section-card">
+                <h3>📚 Что тебе встретится на экзамене?</h3>
+                <p>3 типа задач — знакомимся с каждым:</p>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">️</div>
+                    <h4 class="rule-title">Тип 1. Пути к файлам</h4>
+                    <p class="rule-description">Тебе дадут дерево каталогов и попросят определить полный путь к файлу или найти файл по пути.</p>
+                    <p class="rule-description">Пример: <code>C:\Documents\Homework\math.txt</code></p>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">🎭</div>
+                    <h4 class="rule-title">Тип 2. Маски файлов</h4>
+                    <p class="rule-description">Тебе дадут маску (шаблон) и попросят выбрать файлы, которые ей соответствуют. Используются символы <code>*</code> и <code>?</code></p>
+                    <p class="rule-description">Пример: <code>*.txt</code> или <code>doc?.doc</code></p>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">💾</div>
+                    <h4 class="rule-title">Тип 3. Размер файлов</h4>
+                    <p class="rule-description">Тебе дадут размер файла в байтах и попросят перевести в Кбайты, Мбайты или наоборот.</p>
+                    <p class="rule-description">Пример: 2048 байт = 2 Кбайт</p>
+                </div>
+            </div>
+
+            <!-- What You Need to Know -->
+            <div class="section-card">
+                <h3>🧠 Что нужно знать обязательно</h3>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">🔑</div>
+                    <h4 class="rule-title">Правило №1. Структура файловой системы</h4>
+                    <p class="rule-description">Файловая система — это дерево каталогов (папок). Есть корневой каталог (например, C:\), внутри него папки, внутри папок — файлы и другие папки.</p>
+                    <p class="rule-description"><strong>Путь к файлу</strong> — это адрес файла в файловой системе. Он показывает, как добраться от корневого каталога до файла.</p>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon"></div>
+                    <h4 class="rule-title">Правило №2. Разделитель пути</h4>
+                    <p class="rule-description">В Windows пути записываются с обратным слэшем: <code>C:\Documents\file.txt</code></p>
+                    <p class="rule-description">В Linux/Mac — с прямым слэшем: <code>/home/user/file.txt</code></p>
+                    <p class="rule-description">На ОГЭ обычно используется Windows-стиль.</p>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">🔑</div>
+                    <h4 class="rule-title">Правило №3. Маски файлов</h4>
+                    <p class="rule-description"><code>*</code> (звёздочка) — заменяет любое количество любых символов (включая ноль)</p>
+                    <p class="rule-description"><code>?</code> (вопрос) — заменяет ровно один любой символ</p>
+                    <p class="rule-description">Пример: <code>doc*.txt</code> — файлы, начинающиеся на "doc" и заканчивающиеся на ".txt"</p>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">🔑</div>
+                    <h4 class="rule-title">Правило №4. Перевод единиц</h4>
+                    <p class="rule-description">1 байт = 8 бит</p>
+                    <p class="rule-description">1 Кбайт = 1024 байт</p>
+                    <p class="rule-description">1 Мбайт = 1024 Кбайт</p>
+                    <p class="rule-description">1 Гбайт = 1024 Мбайт</p>
+                    <p class="rule-description">💡 Запомни: всё умножаем или делим на 1024!</p>
+                </div>
+            </div>
+
+            <!-- Steps Section -->
+            <div class="section-card">
+                <h3>🚀 Как решать (пошаговый алгоритм)</h3>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">🪜 Определи тип задачи</h4>
+                    <p class="step-description">Посмотри на условие: просят найти путь? Выбрать файлы по маске? Перевести размер?</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title"> Для путей: изучи дерево каталогов</h4>
+                    <p class="step-description">Внимательно посмотри на схему папок. Найди нужный файл и запиши путь от корня до файла через обратный слэш.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">🪜 Для масок: разбери шаблон</h4>
+                    <p class="step-description">Определи, что означает <code>*</code> и <code>?</code> в маске. Проверь каждый файл — подходит ли он под шаблон.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">🪜 Для размера: переведи единицы</h4>
+                    <p class="step-description">Используй формулы: байты ÷ 1024 = Кбайты, Кбайты ÷ 1024 = Мбайты и т.д.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">🪜 Проверь ответ</h4>
+                    <p class="step-description">Убедись, что путь правильный, маска подходит, единицы переведены верно.</p>
+                </div>
+            </div>
+
+            <!-- Examples Section -->
+            <div class="section-card">
+                <h3> Разбираем примеры</h3>
+                <p>Нажми на карточку, чтобы увидеть решение</p>
+            </div>
+
+            <div class="examples-container">
+                <!-- Example 1 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-title">
+                            <span> Легко</span>
+                            <span>Пример 1: Путь к файлу</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> Пользователь находился в каталоге <code>C:\Documents\Homework</code>. Он поднялся на один уровень вверх, затем перешёл в каталог <code>Projects</code>, а затем в каталог <code>Python</code>. Запишите полный путь к каталогу, в котором оказался пользователь.
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Начальный каталог: <code>C:\Documents\Homework</code>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Поднялся на один уровень вверх — это значит, убрал последний каталог: <code>C:\Documents</code>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji"></div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3.</strong> Перешёл в каталог <code>Projects</code>: <code>C:\Documents\Projects</code>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 4.</strong> Перешёл в каталог <code>Python</code>: <code>C:\Documents\Projects\Python</code>
+                                </div>
+                            </div>
+                            <div class="answer-box"> Ответ: C:\Documents\Projects\Python</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-title">
+                            <span>🟡 Средне</span>
+                            <span>Пример 2: Маска файлов</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> В каталоге находятся файлы: <code>book.txt</code>, <code>books.doc</code>, <code>booklet.pdf</code>, <code>booking.docx</code>, <code>book.doc</code>. Какая маска выберет файлы <code>book.txt</code> и <code>book.doc</code>?
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Смотрим на нужные файлы: <code>book.txt</code> и <code>book.doc</code>. Оба начинаются на "book" и имеют разные расширения.
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji"></div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Проверяем маску <code>book.*</code>:
+                                    <ul>
+                                        <li><code>book.txt</code> — подходит ✅</li>
+                                        <li><code>book.doc</code> — подходит ✅</li>
+                                        <li><code>books.doc</code> — не подходит (лишняя "s") ❌</li>
+                                        <li><code>booklet.pdf</code> — не подходит ❌</li>
+                                        <li><code>booking.docx</code> — не подходит ❌</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="answer-box">🎉 Ответ: book.*</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-title">
+                            <span> Сложнее</span>
+                            <span>Пример 3: Размер файла</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> Файл размером 4096 байт передаётся через интернет-соединение со скоростью 512 бит/с. Определите время передачи файла в секундах.
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Переводим байты в биты: 4096 байт × 8 = 32768 бит
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Используем формулу: Время = Размер ÷ Скорость
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3.</strong> Время = 32768 бит ÷ 512 бит/с = 64 секунды
+                                </div>
+                            </div>
+                            <div class="answer-box">🎉 Ответ: 64</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <div class="example-title">
+                            <span>🟣 Другой тип</span>
+                            <span>Пример 4: Сложная маска</span>
+                        </div>
+                        <div class="example-toggle">+</div>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-body">
+                            <div class="example-task">
+                                <strong>Задача:</strong> В каталоге находятся файлы: <code>data.txt</code>, <code>data1.txt</code>, <code>data12.txt</code>, <code>data123.txt</code>, <code>mydata.txt</code>. Какая маска выберет файлы <code>data1.txt</code> и <code>data12.txt</code>, но не выберет остальные?
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 1.</strong> Анализируем нужные файлы: оба начинаются на "data1", но имеют разное количество цифр после.
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji"></div>
+                                <div class="solution-text">
+                                    <strong>Шаг 2.</strong> Проверяем маску <code>data1?.txt</code>:
+                                    <ul>
+                                        <li><code>data.txt</code> — не подходит (нет "1") ❌</li>
+                                        <li><code>data1.txt</code> — не подходит (нет символа после "1") ❌</li>
+                                        <li><code>data12.txt</code> — подходит ✅</li>
+                                        <li><code>data123.txt</code> — не подходит (два символа после "1") ❌</li>
+                                        <li><code>mydata.txt</code> — не подходит ❌</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 3.</strong> Попробуем <code>data1*.txt</code>:
+                                    <ul>
+                                        <li><code>data1.txt</code> — подходит ✅</li>
+                                        <li><code>data12.txt</code> — подходит ✅</li>
+                                        <li><code>data123.txt</code> — тоже подходит ❌ (не нужно)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="solution-step">
+                                <div class="step-emoji">🔍</div>
+                                <div class="solution-text">
+                                    <strong>Шаг 4.</strong> Правильная маска: <code>data1?.txt</code> выберет только <code>data12.txt</code>, а <code>data1*.txt</code> выберет все три. Но нам нужны только два файла... Значит, задача имеет подвох! Перечитываем условие.
+                                </div>
+                            </div>
+                            <div class="answer-box">🎉 Ответ: data1?.txt (если нужен только data12.txt) или задача требует уточнения</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traps Section -->
+            <div class="section-card">
+                <h3>🚨 Главные ловушки</h3>
+                <p>Как не потерять балл</p>
+            </div>
+
+            <div class="traps-grid">
+                <div class="trap-card">
+                    <h4 class="trap-title">❌ Ловушка 1: «Забыл про регистр»</h4>
+                    <p class="trap-description">В Windows имена файлов не чувствительны к регистру, но в Linux — чувствительны. На ОГЭ обычно Windows.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Считай, что <code>File.txt</code> и <code>file.txt</code> — это один и тот же файл.
+                    </div>
+                </div>
+
+                <div class="trap-card">
+                    <h4 class="trap-title">❌ Ловушка 2: «Перепутал * и ?»</h4>
+                    <p class="trap-description">Звёздочка <code>*</code> — любое количество символов, вопрос <code>?</code> — ровно один символ.</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Запомни: <code>*</code> = "много", <code>?</code> = "один".
+                    </div>
+                </div>
+
+                <div class="trap-card">
+                    <h4 class="trap-title"> Ловушка 3: «Не перевёл единицы»</h4>
+                    <p class="trap-description">Часто дают размер в байтах, а скорость в битах/с. Нужно перевести в одинаковые единицы!</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Всегда проверяй единицы измерения. 1 байт = 8 бит!
+                    </div>
+                </div>
+
+                <div class="trap-card">
+                    <h4 class="trap-title">❌ Ловушка 4: «Забыл про расширение»</h4>
+                    <p class="trap-description">Расширение файла — это часть имени после точки. Оно тоже учитывается в маске!</p>
+                    <div class="trap-solution">
+                        <strong>Как избежать:</strong> Всегда смотри на расширение файла при работе с масками.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checklist Section -->
+            <div class="checklist">
+                <h3 class="checklist-title">✅ Итоговый чек-лист</h3>
+                <p style="text-align: center; color: var(--md-sys-color-on-surface-variant); margin-bottom: var(--md-sys-spacing-lg);">Нажимай на пункты, чтобы отмечать выполненное</p>
+                
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span class="checklist-text">📖 Определил тип задачи (путь, маска, размер)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span class="checklist-text">🗂️ Для путей: изучил дерево каталогов</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span class="checklist-text">🎭 Для масок: разобрал символы * и ?</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span class="checklist-text">💾 Для размера: перевёл единицы измерения</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span class="checklist-text">✅ Проверил ответ ещё раз</span>
+                </div>
+            </div>
+
+            <!-- Memory Section -->
+            <div class="section-card">
+                <h3>🎯 Шпаргалка на экзамен</h3>
+            </div>
+
+            <div class="memory-section">
+                <div class="memory-card">
+                    <h4 class="memory-title"> Ключевые символы масок</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: var(--md-sys-spacing-sm) 0; border-bottom: 1px solid var(--md-sys-color-outline-variant);">
+                            <code style="background: var(--md-sys-color-primary-container); padding: 2px 8px; border-radius: 4px; font-weight: 600;">*</code> — любое количество любых символов
+                        </li>
+                        <li style="padding: var(--md-sys-spacing-sm) 0;">
+                            <code style="background: var(--md-sys-color-primary-container); padding: 2px 8px; border-radius: 4px; font-weight: 600;">?</code> — ровно один любой символ
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="memory-card">
+                    <h4 class="memory-title">💾 Перевод единиц</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: var(--md-sys-spacing-sm) 0; border-bottom: 1px solid var(--md-sys-color-outline-variant);">1 байт = 8 бит</li>
+                        <li style="padding: var(--md-sys-spacing-sm) 0; border-bottom: 1px solid var(--md-sys-color-outline-variant);">1 Кбайт = 1024 байт</li>
+                        <li style="padding: var(--md-sys-spacing-sm) 0; border-bottom: 1px solid var(--md-sys-color-outline-variant);">1 Мбайт = 1024 Кбайт</li>
+                        <li style="padding: var(--md-sys-spacing-sm) 0;">1 Гбайт = 1024 Мбайт</li>
+                    </ul>
+                </div>
+
+                <div class="memory-card">
+                    <h4 class="memory-title">️ Правила путей</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: var(--md-sys-spacing-sm) 0; border-bottom: 1px solid var(--md-sys-color-outline-variant);">Разделитель: <code>\</code> (обратный слэш)</li>
+                        <li style="padding: var(--md-sys-spacing-sm) 0; border-bottom: 1px solid var(--md-sys-color-outline-variant);">Корневой каталог: <code>C:\</code></li>
+                        <li style="padding: var(--md-sys-spacing-sm) 0;">"На уровень вверх" — убрать последний каталог</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Success Section -->
+            <section class="success-section">
+                <div class="success-content">
+                    <div class="success-emoji">🏆</div>
+                    <h2 class="success-title">Ты <span class="highlight">готов</span>!</h2>
+                    <p class="success-text">Если ты понял это пособие, ты сможешь решить ЛЮБУЮ задачу №3 на ОГЭ. Главное — не торопись, внимательно читай условие и проверяй себя по чек-листу.</p>
+                    <p class="success-text">Удачи на экзамене! У тебя всё получится! 🚀⭐</p>
+                </div>
+            </section>
+
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <a href="task2.html" class="nav-button">
+                    <div class="nav-button-icon">⬅️</div>
+                    <div class="nav-button-text">
+                        <span class="nav-button-label">Назад</span>
+                        <span class="nav-button-title">Задание №2</span>
+                    </div>
+                </a>
+                <a href="task4.html" class="nav-button">
+                    <div class="nav-button-text" style="align-items: flex-end;">
+                        <span class="nav-button-label">Далее</span>
+                        <span class="nav-button-title">Задание №4</span>
+                    </div>
+                    <div class="nav-button-icon">➡️</div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2026 ОГЭ Информатика. Все материалы для подготовки к экзамену.</p>
+                <div class="footer-links">
+                    <a href="index.html">Главная</a>
+                    <a href="task1.html">Задание №1</a>
+                    <a href="task2.html">Задание №2</a>
+                    <a href="task3.html">Задание №3</a>
+                    <a href="#top">↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (prefersDark) {
+            html.setAttribute('data-theme', 'dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Example Cards Accordion
+        const exampleCards = document.querySelectorAll('.example-card');
+        exampleCards.forEach(card => {
+            const header = card.querySelector('.example-header');
+            header.addEventListener('click', () => {
+                card.classList.toggle('open');
+            });
+        });
+
+        // Checklist Items
+        const checklistItems = document.querySelectorAll('.checklist-item');
+        checklistItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('checked');
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Progress Bar
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
+        document.body.appendChild(progressBar);
+        
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
